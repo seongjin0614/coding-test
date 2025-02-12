@@ -6,12 +6,13 @@
 # 배열의 원소를 순차적으로 순회함
 # 기본값을 설정하고 기본값보다 작다면 값을 변경함
 
-data = input()
+data = list(map(int, input().split()))
 
-min = 0
-answer = 0
+min = float('inf')
+answer = -1
+n = len(data)
 
-for i in data:
+for i in range(n):
   if data[i] < min:
     min = data[i]
     answer = i
