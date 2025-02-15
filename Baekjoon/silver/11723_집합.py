@@ -19,7 +19,27 @@ sys.stdin = open("input.txt","r")
 
 # ------------------------------------------------------------------------------------------------------------------------------------------------   
 # <문제풀이>
+s = set()
 
+m = int(input())
+for _ in range(m):
+  cmd = sys.stdin.readline().split()
+  if cmd[0] == 'add':
+    s.add(int(cmd[1]))
+  elif cmd[0] == 'remove':
+    s.discard(int(cmd[1]))
+  elif cmd[0] == 'check':
+    print(1 if int(cmd[1]) in s else 0)
+  elif cmd[0] == 'toggle':
+      num = int(cmd[1])
+      if num in s:
+          s.discard(num)
+      else:
+          s.add(num)
+  elif cmd[0] == 'all':
+      s.update(range(1, 21))  # 기존 set을 직접 수정
+  elif cmd[0] == 'empty':
+      s.clear()  # 기존 set을 비움
 # ------------------------------------------------------------------------------------------------------------------------------------------------   
 # <정답 및 다른풀이>
 
